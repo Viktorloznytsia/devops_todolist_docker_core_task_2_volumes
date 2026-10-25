@@ -18,6 +18,7 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' mys
 Put this IP into `HOST` in `todolist/settings.py` (e.g. `172.17.0.2`).
 
 ## 3. Build and run the App container
+The app `Dockerfile` (repository root) runs Django on port 8080 (`runserver 0.0.0.0:8080`), so the port mapping is `8080:8080`.
 MySQL container must be running before the build (migrations run during build).
 ```
 docker build -t todoapp:2.0.0 .
